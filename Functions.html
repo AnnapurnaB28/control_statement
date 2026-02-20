@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+
+<body>
+    <script>
+        // 1. Write a function fizzBuzz(n) that prints numbers from 1 to n. But for multiples of 3, print "Fizz" instead of the number, for multiples of 5 print "Buzz", and for numbers which are multiples of both 3 and 5, print "FizzBuzz"
+
+
+        function fizzBuzz(n) {
+            for (let i = 1; i <= n; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    document.write("FizzBuzz <br>");
+                }
+                else if (i % 5 == 0) {
+                    document.write("Buzz <br>");
+                }
+                else if (i % 3 == 0) {
+                    document.write("Fizz <br>");
+                }
+                else {
+                    document.write(i + " <br>");
+                }
+
+            }
+
+        }
+
+        fizzBuzz(15);
+        document.write("<br>------------------------------------------------------------------------------------------- <br>");
+
+        // 2. Create a function isPalindrome(str) that returns true if the input string is a palindrome (reads the same forward and backward), otherwise false.
+        // function  isPalindrome(str) {
+        //     if(str )
+        // }
+        // document.write("<br>------------------------------------------------------------------------------------------- <br>");
+
+        // 3. Write a function factorial(num) that returns the factorial of a number using a for loop.
+
+        function factorial(num) {
+            let fact = 1;
+
+            for (let i = 1; i <= num; i++) {
+                fact = fact * i;
+            }
+
+            return fact;
+        }
+        document.write(factorial(8));
+
+
+        document.write("<br>------------------------------------------------------------------------------------------- <br>");
+
+        // 4. Write a function isPrime(n) that returns true if n is a prime number, otherwise false.
+
+        function isPrime(n) {
+            if (n <= 1) {
+                return false
+            }
+            for (let i = 2; i < n; i++) {
+                if (n % i === 0)
+                    return false
+            }
+
+            return true
+        }
+
+        document.write(isPrime(7));
+
+
+        document.write("<br>------------------------------------------------------------------------------------------- <br>");
+
+        // 5. Write a function countVowels(str) that returns the number of vowels in the string. Consider a, e, i, o, u (case-insensitive) as vowels. 
+
+        function countVowels(str) {
+            let count = 0;
+
+            for (let i = 0; i < str.length; i++) {
+
+                if (str[i] == 'a' ||
+                    str[i] == 'e' ||
+                    str[i] == 'i' ||
+                    str[i] == 'o' ||
+                    str[i] == 'u') {
+                    count = count + 1;
+                }
+            }
+            return count;
+        }
+        document.write(countVowels("Annapurna"));
+
+    </script>
+</body>
+
+</html>
+
+<!-- Functions Task
+
+
+1. Write a function fizzBuzz(n) that prints numbers from 1 to n. But for multiples of 3, print "Fizz" instead of the number, for multiples of 5 print "Buzz", and for numbers which are multiples of both 3 and 5, print "FizzBuzz"
+
+2. Create a function isPalindrome(str) that returns true if the input string is a palindrome (reads the same forward and backward), otherwise false.
+
+3. Write a function factorial(num) that returns the factorial of a number using a for loop.
+
+4. Write a function isPrime(n) that returns true if n is a prime number, otherwise false.
+
+5. Write a function countVowels(str) that returns the number of vowels in the string. Consider a, e, i, o, u (case-insensitive) as vowels. -->
