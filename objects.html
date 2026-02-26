@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 1. Create an object using constructor method and add data to it by taking input from the user.
+
+        function Student(sid, sname, sphone, semail) {
+            this.id = sid;
+            this.name = sname;
+            this.phone = sphone;
+            this.email = semail;
+        }
+
+        let id = +prompt("Enter Student ID:");
+        let name = prompt("Enter Student Name:");
+        let phone = prompt("Enter Student Phone:");
+        let email = prompt("Enter Student Email:");
+
+
+        let Stud = new Student(id, name, phone, email);
+
+        for (let key in Stud) {
+            document.writeln(`${key} : ${Stud[key]} </br> `);
+        }
+
+
+        // 2. Ask user what data they want to print from object and print only that data on the webpage.
+        // commentline from 33 to 39 to run this 2 quetion 
+        let print = prompt("which data do you want to print? ")
+        if (Stud[print]) {
+            document.write(`<h1> ${print} : ${Stud[print]} </h1>`);
+
+        }
+        else {
+            document.write("there is no data  you typed")
+        }
+
+        // 3. Create multiple objects of students and print them on the webpage.
+
+        let students1 =
+        {
+            name: "Annapurna",
+            age: 23,
+            email: "Annapurnagmailcom",
+            phone: 7620193107,
+            id: 101
+        }
+
+        for (let details in students1) {
+            document.writeln(`${details}: ${students1[details]} </br>`);
+        }
+        document.write(`<hr>`)
+
+        let students2 =
+        {
+            name: "Vijylaxmi",
+            age: 25,
+            email: "ijylaxmigmail.com",
+            phone: 7620193104,
+            id: 102
+        }
+
+        for (let details in students2) {
+            document.writeln(`${details}: ${students2[details]} </br>`);
+        }
+        document.write(`<hr>`)
+
+        let students3 =
+        {
+            name: "Bhagya",
+            age: 26,
+            email: "Bhagyagmail.com",
+            phone: 76201986107,
+            id: 103
+        }
+
+        for (let details in students3) {
+            document.writeln(`${details}: ${students3[details]} </br>`);
+
+        }
+        document.write(`<hr>`)
+
+
+        // 4. Create a nested object of laptopDetails inside the Employee object and print the laptopDetails object only.
+
+
+        let employee = {
+            emp_id: 101,
+            emp_name: "annapurna",
+            emp_age: 23,
+            laptopDetails: {
+
+
+                brand: "HP",
+                model: "Pavilion 15",
+                price: 55000,
+                ram: "8GB",
+                storage: "512GB SSD",
+                processor: "Intel i5"
+            }
+
+
+
+
+        }
+
+        for (let keys in employee.laptopDetails) {
+            document.write(`the laptop details </br> ${keys} : ${employee.laptopDetails[keys]}`)
+        }
+
+
+
+
+        // 1. Create an object using constructor method and add data to it by taking input from the user.
+
+        // 2. Ask user what data they want to print from object and print only that data on the webpage.
+
+        // 3. Create multiple objects of students and print them on the webpage.
+
+        // 4. Create a nested object of laptopDetails inside the Employee object and print the laptopDetails object only.
+
+
+
+    </script>
+
+</body>
+
+</html>
