@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+
+        }
+
+        .container {
+            padding: 10px;
+            margin: auto;
+            border: 2px white solid;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result {
+            display: flex;
+            padding: 10px;
+
+
+        }
+
+        .fisrtsecond {
+            display: flex;
+            padding: 10px;
+            margin-inline: 5px;
+        }
+
+        .btns {
+            display: grid;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="result">
+            <input type="number" id="result" placeholder="Your Result" readonly>
+        </div>
+        <div class="fisrtsecond">
+            <input type="number" placeholder="Enter first  Number" name="1num" id="firstNum">
+            <input type="number" placeholder="Enter Second  Number" name="2num" id="SecondNum">
+        </div>
+        <div class="btns">
+            <button type="button" onclick="operation(add)()">ADDITION</button>
+            <button type="button" onclick="operation(sub)()">SUBTRACTION</button>
+            <button type="button" onclick="operation(mul)()">MULTIPLICATION</button>
+            <button type="button" onclick="operation(divi)()">DIVISION</button>
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <script>
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        function sub(a, b) {
+            return a - b;
+        }
+
+        function mul(a, b) {
+            return a * b;
+        }
+
+        function divi(a, b) {
+            return a / b;
+        }
+        let inputone = document.getElementById("firstNum");
+        let inputtwo = document.getElementById("SecondNum");
+        let newResult = document.getElementById("result");
+
+
+
+        function operation(operator) {
+            return function () {
+                let a = Number(inputone.value);
+                let b = Number(inputtwo.value);
+
+                let ans = operator(a, b);
+
+                newResult.value = ans;
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
