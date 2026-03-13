@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #071027f3;
+            color: white;
+
+        }
+
+        .inputs {
+            border: 1px solid white;
+            box-shadow: 5px 5px 10px gray;
+            /* backdrop-filter: blur(5px);
+            background-color: #0710270e; */
+
+            border-radius: 15px;
+            margin: auto;
+            padding: 30px 20px;
+            width: 500px;
+            /* height: 300px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .forms {
+            /* border: 1px solid pink; */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+        }
+
+        #name1,
+        #lname,
+        #age {
+            margin: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            height: 30px;
+
+        }
+
+        #sub {
+
+            display: flex;
+            text-align: center;
+            padding: 10px 50px;
+            margin-block: 10px;
+            background-color: #04aa6d;
+            color: aliceblue;
+            font-size: large;
+            /* border: 1px solid black; */
+            border-radius: 7px;
+            border: none;
+
+        }
+
+        .label {
+            /* border: 1px solid red; */
+            display: flex;
+            justify-items: start;
+            width: 100%;
+
+        }
+
+        .rlabel {
+            width: 100%;
+            padding: 20px;
+            height: auto;
+            margin: 20px 10px;
+
+        }
+
+        .rlabel {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inputs">
+        <form class="forms" id="myForm">
+
+
+            <input type="text" readonly class="rlabel">
+
+
+            <label for="name1" class="label"> First Name:</label>
+            <input type="text" name="firstname" id="name1" onfocus="result()" onkeyup="data()" onchange="resultData()">
+
+            <label for="lname" class="label"> Last name:</label>
+            <input type="text" id="lname" name="lastname" onfocus="result()" onchange="resultData()">
+
+            <label for="age" class="label"> Age:</label>
+            <input type="text" id="age" name="Age" onfocus="result()" onchange="resultData()">
+
+
+            <input type="submit" value="submit" id="sub">
+
+        </form>
+
+
+    </div>
+
+    <script>
+        let form = document.getElementById("myForm");
+
+        form.onsubmit = function () {
+            return confirm("Are you sure?");
+        };
+        let readLabel = document.querySelector(".rlabel");
+
+        function result() {
+            readLabel.style.visibility = "visible";
+        }
+
+        // let  inputsLable = querySelectorAll ("#name1, #lname , #age" )
+        let firstName = document.getElementById("name1")
+
+        let lastName = document.getElementById("lname")
+
+        let myAge = document.getElementById("age")
+
+        let body = document.querySelector("body");
+        function data() {
+
+
+            let len = firstName.value.length;
+            switch (true) {
+                case len < 3:
+                    body.style.backgroundColor = "#071027f3"
+                    break;
+                case len >= 3 && len < 5:
+                    body.style.backgroundColor = "yellow";
+                    break;
+                case len >= 5 && len < 7:
+                    body.style.backgroundColor = "lavender";
+                    break;
+                case len >= 7 && len <= 10:
+                    body.style.backgroundColor = "pink";
+                    break;
+
+
+                default:
+                    body.style.backgroundColor = "red"
+                    break;
+            }
+        }
+
+
+        function resultData() {
+            readLabel.value = ` Hello Guys My first  name is "${firstName.value}"  and my last name is "${lastName.value}"   My age is "${myAge.value}"  `
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
