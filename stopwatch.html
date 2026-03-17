@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* margin: auto; */
+            /* border: 2px solid black; */
+        }
+
+        .clock {
+            border: 3px solid black;
+            border-radius: 70px;
+            width: 800px;
+            height: 350px;
+            padding: 30px;
+        }
+
+        #text {
+            /* border: 2px solid black; */
+            text-align: center;
+            padding: 10px;
+
+        }
+
+        .times,
+        .btns {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            text-align: center;
+            /* border: 1px dashed red; */
+            margin: 25px 10px;
+            padding: 20px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 30px;
+            color: white;
+            border: none;
+            font-weight: 600;
+            font-size: large;
+            letter-spacing: 2px;
+
+
+        }
+
+        #hrs,
+        #min,
+        #sec,
+        #millisec,
+        #zone {
+            border: 1px solid black;
+            padding: 8px 20px;
+        }
+
+        #btn3 {
+            background-color: #d9534f;
+        }
+
+        #btn2 {
+            background-color: #f0ad4e;
+        }
+
+        #btn1 {
+            background-color: #337ab7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+
+        <h1 id="text">STOP WATCH</h1>
+        <div class="times">
+            <h1 id="hrs">00</h1>
+            <h1 id="min">00</h1>
+            <h1 id="sec"> 00</h1>
+            <h1 id="millisec">000</h1>
+            <h1 id="zone">00</h1>
+        </div>
+
+
+        <div class="btns">
+            <button type="button" class="btn" id="btn1" onclick="start()">START</button>
+            <button type="button" class="btn" id="btn2" onclick="pause()">PAUSE </button>
+            <button type="button" class="btn" id="btn3" onclick="reset()">RESET</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+
+        let hours = document.getElementById("hrs");
+        let minutes = document.getElementById("min");
+        let seconds = document.getElementById("sec");
+        let milliseconds = document.getElementById("millisec");
+        let ZoneMode = document.getElementById("zone");
+        let timeSet;
+
+        function start() {
+            timeSet = setInterval(() => {
+                let Time = new Date()
+                // console.log(Time);
+                hours.innerHTML = Time.getHours();
+                minutes.innerHTML = Time.getMinutes();
+                seconds.innerHTML = Time.getSeconds();
+                milliseconds.innerHTML = Time.getMilliseconds();
+                if (Time.getHours() >= 12) {
+                    ZoneMode.innerHTML = "PM"
+                }
+                else {
+                    ZoneMode.innerHTML = "AM"
+                }
+            })
+
+        }
+
+        function pause() {
+            clearInterval(timeSet)
+
+
+
+        }
+
+
+        function reset() {
+            clearInterval(timeSet);
+
+            hours.innerHTML = "<h4>00</h4>";
+            minutes.innerHTML = "<h4>00</h4>";
+            seconds.innerHTML = "<h4>00</h4>";
+            milliseconds.innerHTML = "<h4>000</h4>";
+            // ZoneMode.innerHTML = "<h4>00</h4>";
+            if (Time.getHours() >= 12) {
+                ZoneMode.innerHTML = "PM"
+            }
+            else {
+                ZoneMode.innerHTML = "AM"
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
